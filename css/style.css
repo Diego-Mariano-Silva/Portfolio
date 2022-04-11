@@ -1,0 +1,391 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap');
+
+        /*Generales*/
+:root {
+  --main-black: #101010;
+  --second-black: #202020;
+  --main-white: #f0f0f0;
+  --main-red: #be3144;
+  --main-blue: #45567d;
+  --main-cyan:#99ccff;
+  --second-cyan: #0080ff;
+  --main-gray: #303841;
+  --h1-font: 'Ubuntu', sans-serif;
+  --h2-font: 'Red Hat Mono', monospace;
+  --body-font:'Montserrat', sans-serif;
+  --nav-font: 'Open Sans', sans-serif;
+    
+}
+
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* box-sizing and font sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+
+  /* Set font size for easy rem calculations
+   * default document font size = 16px, 1rem = 16px, 100% = 16px
+   * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+  */
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+/* A few media query to set some font sizes at different screen sizes.
+ * This helps automate a bit of responsiveness.
+ * The trick is to use the rem unit for size values, margin and padding.
+ * Because rem is relative to the document font size
+ * when we scale up or down the font size on the document
+ * it will affect all properties using rem units for the values.
+*/
+
+/* I am using the em unit for breakpoints
+ * The calculation is the following
+ * screen size divided by browser base font size
+ * As an example: a breakpoint at 980px
+ * 980px / 16px = 61.25em
+*/
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* Base styles */
+
+body {
+  font-family:  var(--body-font);
+  font-size: 1.8rem; /* 18px */
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--main-white);
+}
+
+h1,
+h2 {
+  font-family: var(--h1-font);
+  font-weight: 700;
+  text-align: center;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--main-white);
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+.link{
+  font-family;
+  color: white;
+  margin: 0 0.5rem;
+}
+.link a{
+  margin-left: 1rem;
+}
+        /*Sections*/
+
+
+
+
+
+#navbar-section {
+  background-color: var(--main-black);
+  position: fixed;
+  width: 100%;
+  padding: 1.5rem;
+  
+}
+#footer-section {
+  padding: 10px;
+  background-color: var(--main-black);
+  text-align: center;
+}
+
+
+
+
+        /*Nav Bar*/
+
+#navbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  
+  
+}
+#navbar div {
+  
+  display: flex;
+  text-align: center;
+  
+}
+#navbar button {
+  background-color: var(--second-black);
+  padding:  1rem;
+  width: 15rem;
+  border: 3px solid var(--main-cyan);
+  border-radius: 10px;
+  letter-spacing:1px;
+  
+  box-shadow: inset 0 0 0 0 var(--second-cyan);
+  transition: ease-out 0.3s;
+  outline: none;
+  cursor: pointer;
+}
+#navbar button:hover  {
+  box-shadow: inset 15rem 0 0 0 var(--second-cyan);
+  cursor: pointer;
+}
+@media (max-width: 480px) {
+  #navbar button {
+    width: auto;
+}
+}
+  
+
+
+#navbar a {
+  text-decoration: none;
+  color: white;
+  /*text-shadow: 0px 0px 2px black;*/
+  text-transform: uppercase;
+  font-size: 15px;
+  font-family: var(--nav-font);
+  font-weight: 990;
+}
+
+        /*Welcome Section*/
+#welcome-section {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+}
+
+.presentation h1 {
+  font-size: 6rem;
+  font-family; "Open Sans", sans serif;
+  padding: 0 4rem;
+  border-bottom: 3px solid var(--main-cyan);
+}
+@media (max-width: 400px){
+  .presentation h1 {
+    font-size: 4rem;
+  }
+}
+.presentation h2 {
+  font-size: 3.2rem;
+  font-family: var(--h2-font);
+  font-family; "Open Sans", sans serif;
+  margin-bottom: 2rem;
+}
+
+        /* Projects */
+.projects-section {
+  text-align: center;
+  padding: 10rem 2rem;
+  background: var(--main-blue);
+}
+
+.projects-section h1 {
+  max-width: 550px;
+  margin: 0 auto 3rem auto;
+  font-size: 5rem;
+  border-bottom: 0.3rem solid var(--main-cyan);
+}
+
+@media (max-width: 28.75em) {
+  .projects-section-header {
+    font-size: 4rem;
+  }
+}
+
+/* "Automagic" image grid using no media queries */
+.projects-grid {
+  display: grid;
+  grid-template: auto auto / 1fr 1fr 1fr;
+  grid-gap: 4rem;
+  width: 100%;
+  
+  max-width: 1280px;
+  margin: 0 auto;
+}
+/*Solving word breaking points with media querys*/
+@media (max-width: 1080px) {
+  .projects-section {
+    padding: 6rem 4rem;
+  }
+  .projects-grid {
+    grid-template-columns: auto auto;
+  }
+}
+@media (min-width: 750px){
+  .technical-documentation-page{
+    grid-column-start: 2;
+  }
+}
+@media (max-width: 750px) {
+  .projects-section {
+    padding: 6rem 2rem;
+  }
+  .projects-grid {
+    grid-template-columns: auto;
+  }
+}
+
+.project {
+  background: var(--main-gray);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  padding: -10px;  
+}
+
+.code {
+  color: var(--main-gray);
+  transition: color 0.3s ease-out;
+}
+
+.project:hover .code {
+  color: #ff7f50;
+}
+
+.project-image {
+  height: calc(100% - 6.8rem);
+  width: 100%;
+  object-fit: cover;
+}
+
+
+.project-title {
+   font-size: 2rem;
+  padding: 2rem 0.5rem;
+  word-wrap: break-word;
+}
+/*Solving more word breaking points with media querys*/
+@media (max-width: 1170px) {
+  #project-4{
+    padding: 0.7rem 0.5rem;
+  }
+}
+@media (max-width: 875px) {
+  #project-4{
+    font-size: 1.6rem;
+    padding: 1.1rem 0.5rem;
+  }
+}
+@media (max-width: 750px) {
+   #project-4{
+         font-size: 2rem;
+  padding: 2rem 0.5rem;
+  }
+}
+@media (max-width: 370px) {
+#project-4 {
+  padding: 0.7rem 0.5rem;
+} 
+}
+
+
+
+        /* Form */
+
+#contact-section {
+  padding: 5rem 2rem;
+  background-color: #303841;
+  justify-content: center;
+  text-align: center;
+}
+#contact-section p{
+  font-size: 3rem;
+  line-height: 4rem;
+  margin-bottom: 2rem;
+  
+}
+.contact-me-here {
+    font-weight: 500;
+}
+@media (max-width: 570px){
+  #contact-section p{
+    font-size: 2.3rem;
+}
+}
+
+
+
+input {
+  display: flex;
+  justify-content: center;
+  width: 60vw;
+  padding: 10px;
+  margin:5px auto;
+  box-sizing: border-box;
+  border-radius: 10px;
+  backgound-color: /* set it up */;
+}
+@media (max-width: 720px){
+  input{
+    width: 70vw;
+    margin: auto;
+  }
+}
+label{
+  font-family: Ubuntu;
+}
+
+#Message {
+  padding: 0 0 130px 0;
+}
+.contact-me-here {
+  max-width: 350px;
+  margin: auto;
+  font-size: 5rem;
+  border-bottom: 0.3rem solid var(--main-cyan);
+}
+
+
